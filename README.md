@@ -1,16 +1,182 @@
-# React + Vite
+# 🚀 EXP-4: Advanced React Application  
+##  Saloni Gupta – Redux Toolkit Portfolio Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An advanced multi-page React application built as part of **EXP-4 (Full Stack / Advanced Frontend Development Experiment)**.  
 
-Currently, two official plugins are available:
+This project demonstrates:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Redux Toolkit state management
+- Async data handling with createAsyncThunk
+- State persistence using localStorage
+- Dark/Light theme context management
+- Dynamic project filtering & bookmarking
+- Responsive UI with Tailwind CSS
+- Animated transitions using Framer Motion
+- Modular architecture & scalable structure
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔥 Live Demo
 
-## Expanding the ESLint configuration
+🌐 https://your-vercel-link.vercel.app  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+# 📚 Experiment Objective (EXP-4)
+
+To develop an **Advanced React Application** implementing:
+
+- Global state management using Redux Toolkit
+- Asynchronous operations using Thunks
+- Data persistence
+- Component reusability
+- Routing with React Router
+- Responsive & dynamic UI design
+
+---
+
+# 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|----------|
+| React.js | Frontend Framework |
+| Vite | Build Tool |
+| Redux Toolkit | State Management |
+| createAsyncThunk | Async Data Handling |
+| React Router DOM | Routing |
+| Tailwind CSS | Styling |
+| Framer Motion | Animations |
+| React Icons | UI Icons |
+| localStorage | State Persistence |
+
+---
+
+# 🧠 Advanced Concepts Implemented
+
+### ✅ Redux Slice Architecture
+- `projectSlice.js`
+- Actions & Reducers
+- Async Thunk for fetching projects
+- Selectors for state access
+
+### ✅ State Persistence
+- Bookmarked projects stored in localStorage
+- Auto-restored on reload
+
+### ✅ Dynamic Filtering
+- Filter projects by category
+- Real-time UI updates
+
+### ✅ Bookmark System
+- Add / Remove bookmarks
+- Prevent duplicate entries
+
+### ✅ Theme Context
+- Global Dark/Light mode toggle
+- Persistent theme preference
+
+---
+
+# 📂 Project Structure
+
+```
+src/
+│
+├── components/
+│   ├── Navbar.jsx
+│   ├── Footer.jsx
+│   ├── Layout.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Projects.jsx
+│   ├── Experience.jsx
+│   ├── Achievements.jsx
+│   ├── Hackathons.jsx
+│   ├── Contact.jsx
+│
+├── redux/
+│   ├── projectSlice.js
+│   ├── store.js
+│
+├── context/
+│   ├── ThemeContext.jsx
+│   ├── AuthContext.jsx
+│   ├── LanguageContext.jsx
+│
+├── App.jsx
+├── main.jsx
+```
+
+---
+
+# ⚙️ Installation & Setup
+
+
+
+Navigate to folder:
+
+```bash
+cd portfolio-website
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+---
+
+# 🚀 Deployment
+
+This application is deployed using **Vercel**.
+
+Deployment Steps:
+
+1. Push code to GitHub
+2. Import repository in Vercel
+3. Click Deploy
+4. Application goes live
+
+---
+
+# 🎯 Key Functionalities Demonstrated (EXP-4 Evaluation Ready)
+
+- ✔ Global State Management
+- ✔ Asynchronous Data Fetching
+- ✔ Modular Folder Structure
+- ✔ Scalable Component Architecture
+- ✔ Persistent Application State
+- ✔ Clean UI/UX
+- ✔ Production Deployment
+
+---
+
+# 👩‍💻 Developed By
+
+**Saloni Gupta**  
+B.Tech CSE AI-ML
+23BAI70642
+
+📧 gsaloni567@gmail.com  
+
+---
+
+# ⭐ Academic Declaration
+
+This project is developed as part of **EXP-4 (Advanced Application Development Experiment)** for academic submission and learning purposes.
+
+---
