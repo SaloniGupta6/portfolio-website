@@ -7,6 +7,10 @@ function Navbar() {
   const { language, toggleLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
+  /* =============================
+     Navigation Items
+  ============================== */
+
   const navItems = [
     {
       name: language === "en" ? "Home" : "होम",
@@ -25,18 +29,21 @@ function Navbar() {
       path: "/experience",
     },
     {
-        name: language === "en" ? "Achievements" : "उपलब्धियाँ",
-        path: "/achievements",
-      },
-      {
-        name: language === "en" ? "Hackathons" : "हैकाथॉन",
-        path: "/hackathons",
-      },
+      name: language === "en" ? "Achievements" : "उपलब्धियाँ",
+      path: "/achievements",
+    },
+    {
+      name: language === "en" ? "Hackathons" : "हैकाथॉन",
+      path: "/hackathons",
+    },
+    {
+      name: language === "en" ? "Reports" : "रिपोर्ट्स",   // ⭐ EXP-5 PAGE
+      path: "/reports",
+    },
     {
       name: language === "en" ? "Contact" : "संपर्क",
       path: "/contact",
     },
-    
   ];
 
   return (
@@ -44,23 +51,27 @@ function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="flex justify-between items-center px-12 py-5 
-      bg-white/70 backdrop-blur-xl 
-      sticky top-0 z-50 
+      className="flex flex-wrap justify-between items-center px-10 py-4
+      bg-white/70 backdrop-blur-xl
+      sticky top-0 z-50
       border-b border-pink-200 shadow-md"
     >
-      {/* Logo */}
+      {/* ================= LOGO ================= */}
+
       <h1
-        className="text-2xl font-bold tracking-wide 
-        bg-gradient-to-r from-pink-500 to-rose-400 
+        className="text-2xl font-bold tracking-wide
+        bg-gradient-to-r from-pink-500 via-rose-400 to-red-400
         bg-clip-text text-transparent"
       >
         Saloni Gupta
       </h1>
 
-      {/* Nav Links */}
-      <div className="flex gap-10 font-medium text-gray-700">
+      {/* ================= NAV LINKS ================= */}
+
+      <div className="flex flex-wrap gap-8 font-medium text-gray-700">
+
         {navItems.map((item, index) => (
+
           <NavLink
             key={index}
             to={item.path}
@@ -73,41 +84,54 @@ function Navbar() {
             {({ isActive }) => (
               <>
                 {item.name}
+
+                {/* Animated underline */}
+
                 <span
-                  className={`absolute left-0 -bottom-1 h-[2px] 
-                  bg-gradient-to-r from-pink-400 to-rose-400 
-                  transition-all duration-300 
+                  className={`absolute left-0 -bottom-1 h-[2px]
+                  bg-gradient-to-r from-pink-400 to-rose-400
+                  transition-all duration-300
                   ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                    isActive
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
                   }`}
                 ></span>
               </>
             )}
+
           </NavLink>
+
         ))}
+
       </div>
 
-      {/* Right Controls */}
-      <div className="flex items-center gap-4">
+      {/* ================= RIGHT CONTROLS ================= */}
+
+      <div className="flex items-center gap-4 mt-2">
+
         {/* Language Toggle */}
+
         <button
           onClick={toggleLanguage}
-          className="px-3 py-1 text-sm rounded-lg 
-          bg-gradient-to-r from-blue-500 to-indigo-500 
+          className="px-3 py-1 text-sm rounded-lg
+          bg-gradient-to-r from-blue-500 to-indigo-500
           text-white shadow hover:scale-105 transition"
         >
           {language === "en" ? "हिंदी" : "EN"}
         </button>
 
         {/* Theme Toggle */}
+
         <button
           onClick={toggleTheme}
-          className="px-3 py-1 text-sm rounded-lg 
-          bg-gradient-to-r from-gray-700 to-black 
+          className="px-3 py-1 text-sm rounded-lg
+          bg-gradient-to-r from-gray-700 to-black
           text-white shadow hover:scale-105 transition"
         >
           {theme === "light" ? "Dark" : "Light"}
         </button>
+
       </div>
     </motion.nav>
   );

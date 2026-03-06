@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -21,68 +21,117 @@ function Projects() {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
+  /* =========================
+     Fetch Projects
+  ========================= */
+
   useEffect(() => {
     dispatch(fetchProjects());
   }, [dispatch]);
 
+  /* =========================
+     Check Bookmark
+  ========================= */
+
   const isBookmarked = (id) =>
     bookmarks.some((project) => project.id === id);
 
-  return (
-    <div className="min-h-screen py-24 bg-gradient-to-br from-white to-rose-100 px-6">
+  /* =========================
+     useMemo Optimization
+     (Exp-5 Requirement)
+  ========================= */
 
-      <h2 className="text-4xl font-bold text-center mb-10 text-rose-600">
+  const totalProjects = useMemo(() => {
+    return projects.length;
+  }, [projects]);
+
+  const totalBookmarks = useMemo(() => {
+    return bookmarks.length;
+  }, [bookmarks]);
+
+  /* =========================
+     Categories
+  ========================= */
+
+  const categories = ["All", "Frontend", "Fullstack", "AI"];
+
+  return (
+    <div className="min-h-screen py-24 bg-gradient-to-br from-white via-pink-50 to-rose-100 px-6">
+
+      {/* ================= TITLE ================= */}
+
+      <h2 className="text-4xl font-bold text-center mb-6 text-rose-600">
         My Projects
       </h2>
 
-      {/* Filter Buttons */}
-      <div className="flex justify-center gap-4 mb-12">
-        {["All", "Frontend", "Fullstack", "AI"].map((category) => (
+      <p className="text-center text-gray-600 mb-12">
+        Total Projects: {totalProjects}
+      </p>
+
+      {/* ================= FILTER BUTTONS ================= */}
+
+      <div className="flex justify-center flex-wrap gap-4 mb-14">
+
+        {categories.map((category) => (
           <button
             key={category}
             onClick={() => dispatch(filterByCategory(category))}
-            className="px-4 py-2 rounded-full bg-white shadow hover:bg-rose-500 hover:text-white transition"
+            className="px-6 py-2 rounded-full bg-white shadow 
+            border border-rose-200 
+            hover:bg-rose-500 hover:text-white 
+            transition duration-300"
           >
             {category}
           </button>
         ))}
+
       </div>
 
-      {/* Loading */}
+      {/* ================= LOADING ================= */}
+
       {loading && (
         <p className="text-center text-blue-500 font-medium">
           Loading projects...
         </p>
       )}
 
-      {/* Error */}
+      {/* ================= ERROR ================= */}
+
       {error && (
         <p className="text-center text-red-500 font-medium">
           Error: {error}
         </p>
       )}
 
-      {/* Project Cards */}
-      <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      {/* ================= PROJECT CARDS ================= */}
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+
         {!loading &&
           projects.map((project) => (
+
             <motion.div
               key={project.id}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, rotate: 0.5 }}
               transition={{ duration: 0.3 }}
-              className="bg-white p-10 rounded-3xl shadow-2xl border border-rose-200 hover:shadow-rose-300"
+              className="bg-white p-8 rounded-3xl 
+              shadow-xl border border-pink-200
+              hover:shadow-rose-300"
             >
-              <h3 className="text-2xl font-bold text-rose-600 mb-4">
+
+              <h3 className="text-xl font-bold text-rose-600 mb-3">
                 {project.title}
               </h3>
 
-              <p className="text-gray-700 mb-4">
+              <p className="text-gray-700 mb-4 text-sm leading-relaxed">
                 {project.description}
               </p>
 
-              <p className="text-sm text-gray-500 font-medium mb-6">
+              <p className="text-xs text-gray-500 mb-6">
                 Category: {project.category}
               </p>
+
+              {/* Bookmark Button */}
 
               <button
                 onClick={() =>
@@ -90,7 +139,7 @@ function Projects() {
                     ? dispatch(removeBookmark(project.id))
                     : dispatch(addBookmark(project))
                 }
-                className={`px-5 py-2 rounded-full text-white transition ${
+                className={`px-5 py-2 rounded-full text-white text-sm transition ${
                   isBookmarked(project.id)
                     ? "bg-red-500 hover:bg-red-600"
                     : "bg-green-500 hover:bg-green-600"
@@ -100,14 +149,21 @@ function Projects() {
                   ? "Remove Bookmark"
                   : "Bookmark"}
               </button>
+
             </motion.div>
+
           ))}
+
       </div>
 
-      {/* Bookmark Counter */}
-      <div className="text-center mt-16 text-lg font-semibold text-indigo-600">
-        Bookmarked Projects: {bookmarks.length}
+      {/* ================= BOOKMARK COUNTER ================= */}
+
+      <div className="text-center mt-20 text-lg font-semibold text-indigo-600">
+
+        ⭐ Bookmarked Projects: {totalBookmarks}
+
       </div>
+
     </div>
   );
 }
