@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import projectReducer from "./slices/projectSlice";
+import searchReducer from "./slices/searchSlice";
 
 /* =========================
    Load State From Storage
@@ -43,6 +44,7 @@ const saveState = (state) => {
 export const store = configureStore({
   reducer: {
     projects: projectReducer,
+    search: searchReducer,
   },
   preloadedState: loadState(),
 });

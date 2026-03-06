@@ -2,8 +2,12 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
+import { useDispatch } from "react-redux";
+import { setSearchQuery } from "../store/slices/searchSlice";
 
 function Navbar() {
+  const dispatch = useDispatch();
+
   const { language, toggleLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
@@ -37,7 +41,7 @@ function Navbar() {
       path: "/hackathons",
     },
     {
-      name: language === "en" ? "Reports" : "रिपोर्ट्स",   // ⭐ EXP-5 PAGE
+      name: language === "en" ? "Reports" : "रिपोर्ट्स",
       path: "/reports",
     },
     {
@@ -56,6 +60,7 @@ function Navbar() {
       sticky top-0 z-50
       border-b border-pink-200 shadow-md"
     >
+
       {/* ================= LOGO ================= */}
 
       <h1
@@ -65,6 +70,25 @@ function Navbar() {
       >
         Saloni Gupta
       </h1>
+
+      {/* ================= SEARCH BAR ================= */}
+
+      <div className="flex items-center">
+
+        <input
+          type="text"
+          placeholder="Search projects..."
+          onChange={(e) =>
+            dispatch(setSearchQuery(e.target.value))
+          }
+          className="px-4 py-2 rounded-xl
+          border border-gray-300
+          focus:outline-none
+          focus:ring-2 focus:ring-pink-400
+          text-sm shadow-sm"
+        />
+
+      </div>
 
       {/* ================= NAV LINKS ================= */}
 
@@ -99,7 +123,6 @@ function Navbar() {
                 ></span>
               </>
             )}
-
           </NavLink>
 
         ))}
@@ -133,6 +156,7 @@ function Navbar() {
         </button>
 
       </div>
+
     </motion.nav>
   );
 }

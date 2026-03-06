@@ -13,6 +13,8 @@ import {
   selectError,
 } from "../store/slices/projectSlice";
 
+import { selectSearchQuery } from "../store/slices/searchSlice";
+
 function Projects() {
   const dispatch = useDispatch();
 
@@ -20,6 +22,8 @@ function Projects() {
   const bookmarks = useSelector(selectBookmarks);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
+
+  const searchQuery = useSelector(selectSearchQuery);
 
   /* =========================
      Fetch Projects
@@ -30,20 +34,30 @@ function Projects() {
   }, [dispatch]);
 
   /* =========================
-     Check Bookmark
+     Bookmark Check
   ========================= */
 
   const isBookmarked = (id) =>
     bookmarks.some((project) => project.id === id);
 
   /* =========================
-     useMemo Optimization
-     (Exp-5 Requirement)
+     Search + Filter (useMemo)
+     EXP-5 Requirement
+  ========================= */
+
+  const filteredProjects = useMemo(() => {
+    return projects.filter((project) =>
+      project.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [projects, searchQuery]);
+
+  /* =========================
+     Analytics Counters
   ========================= */
 
   const totalProjects = useMemo(() => {
-    return projects.length;
-  }, [projects]);
+    return filteredProjects.length;
+  }, [filteredProjects]);
 
   const totalBookmarks = useMemo(() => {
     return bookmarks.length;
@@ -64,7 +78,7 @@ function Projects() {
         My Projects
       </h2>
 
-      <p className="text-center text-gray-600 mb-12">
+      <p className="text-center text-gray-600 mb-10">
         Total Projects: {totalProjects}
       </p>
 
@@ -108,11 +122,11 @@ function Projects() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
 
         {!loading &&
-          projects.map((project) => (
+          filteredProjects.map((project) => (
 
             <motion.div
               key={project.id}
-              whileHover={{ scale: 1.05, rotate: 0.5 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
               className="bg-white p-8 rounded-3xl 
               shadow-xl border border-pink-200
