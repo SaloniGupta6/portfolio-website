@@ -1,107 +1,241 @@
-# 🚀 EXP-4: Advanced React Application  
-##  Saloni Gupta – Redux Toolkit Portfolio Application
+# 🚀 Advanced React Portfolio Application
 
-An advanced multi-page React application built as part of **EXP-4 (Full Stack / Advanced Frontend Development Experiment)**.  
+### Saloni Gupta – Redux Toolkit + Context + Performance Optimized React App
 
-This project demonstrates:
+An **advanced multi-page React application** developed as part of academic experiments **EXP-4 and EXP-5 (Advanced Frontend Development)**.
 
-- Redux Toolkit state management
-- Async data handling with createAsyncThunk
-- State persistence using localStorage
-- Dark/Light theme context management
-- Dynamic project filtering & bookmarking
-- Responsive UI with Tailwind CSS
-- Animated transitions using Framer Motion
-- Modular architecture & scalable structure
+The project demonstrates modern **React architecture, state management, performance optimization, and scalable UI design**.
 
 ---
 
-## 🔥 Live Demo
+# 🔥 Live Demo
 
-🌐(https://saloni-gupta-23bai70642-fs-4.vercel.app)
+🌐 https://saloni-gupta-23bai70642-fs-4.vercel.app
 
 ---
 
-# 📚 Experiment Objective (EXP-4)
+# 📚 Experiment Overview
 
-To develop an **Advanced React Application** implementing:
+## 🧪 EXP-4: Advanced React Application
 
-- Global state management using Redux Toolkit
-- Asynchronous operations using Thunks
-- Data persistence
-- Component reusability
-- Routing with React Router
-- Responsive & dynamic UI design
+Experiment-4 focuses on building a **scalable React application using Redux Toolkit and modern UI techniques**.
+
+### 🎯 Objectives
+
+* Implement **Redux Toolkit for global state management**
+* Manage **asynchronous operations using createAsyncThunk**
+* Implement **persistent application state**
+* Build a **dynamic multi-page React application**
+* Apply **responsive UI design**
+* Implement **clean component architecture**
+
+### 🧠 Features Implemented (EXP-4)
+
+✅ Redux Toolkit state management
+✅ Async data fetching using `createAsyncThunk`
+✅ Project bookmarking system
+✅ Category based project filtering
+✅ Dark / Light Theme using Context API
+✅ Responsive UI with Tailwind CSS
+✅ Animated transitions using Framer Motion
+✅ Persistent data using localStorage
+✅ Modular folder architecture
+✅ Multi-page routing using React Router
+
+---
+
+# 🧪 EXP-5: React Performance & Advanced State Management
+
+Experiment-5 extends the EXP-4 application by introducing **advanced React performance and state management techniques**.
+
+### 🎯 Objectives
+
+* Implement **Redux Toolkit state architecture**
+* Use **Context API for global app settings**
+* Optimize rendering performance using **useMemo**
+* Extend application with **new functional page**
+* Maintain **consistent UI/UX across pages**
+
+---
+
+# 🧠 New Features Added (EXP-5)
+
+### 1️⃣ Redux Toolkit Search System
+
+A **global search feature** implemented using Redux.
+
+Features:
+
+* Search projects dynamically
+* Shared search state across components
+* Optimized UI updates
+
+---
+
+### 2️⃣ Reports Page (New Page)
+
+A new **Reports page** was added to extend the application.
+
+Features:
+
+* Displays **analytics summary**
+* Shows **total projects**
+* Shows **bookmarked projects**
+* Demonstrates **derived state computation**
+
+---
+
+### 3️⃣ useMemo Performance Optimization
+
+`useMemo` is used to optimize derived calculations.
+
+Examples:
+
+* Total projects count
+* Total bookmarked projects
+* Filtered project lists
+
+This ensures **recomputation happens only when dependencies change**.
+
+---
+
+### 4️⃣ Improved Redux Architecture
+
+Additional Redux slice added:
+
+* `searchSlice.js`
+
+Updated store configuration.
+
+---
+
+### 5️⃣ Extended Multi-Page Architecture
+
+New pages added while maintaining consistent UI:
+
+* Home
+* Profile
+* Projects
+* Experience
+* Achievements
+* Hackathons
+* Reports ⭐ (EXP-5 Page)
+* Contact
 
 ---
 
 # 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|----------|
-| React.js | Frontend Framework |
-| Vite | Build Tool |
-| Redux Toolkit | State Management |
-| createAsyncThunk | Async Data Handling |
-| React Router DOM | Routing |
-| Tailwind CSS | Styling |
-| Framer Motion | Animations |
-| React Icons | UI Icons |
-| localStorage | State Persistence |
+| Technology       | Purpose                 |
+| ---------------- | ----------------------- |
+| React.js         | Frontend Framework      |
+| Vite             | Build Tool              |
+| Redux Toolkit    | Global State Management |
+| createAsyncThunk | Async Operations        |
+| React Router DOM | Page Routing            |
+| Tailwind CSS     | Styling                 |
+| Framer Motion    | Animations              |
+| React Icons      | UI Icons                |
+| localStorage     | State Persistence       |
 
 ---
 
 # 🧠 Advanced Concepts Implemented
 
 ### ✅ Redux Slice Architecture
-- `projectSlice.js`
-- Actions & Reducers
-- Async Thunk for fetching projects
-- Selectors for state access
+
+Implemented modular Redux slices:
+
+* `projectSlice.js`
+* `searchSlice.js`
+
+Includes:
+
+* actions
+* reducers
+* async thunk
+* selectors
+
+---
 
 ### ✅ State Persistence
-- Bookmarked projects stored in localStorage
-- Auto-restored on reload
 
-### ✅ Dynamic Filtering
-- Filter projects by category
-- Real-time UI updates
+Bookmarked projects are saved in **localStorage** and automatically restored when the page reloads.
+
+---
+
+### ✅ Dynamic Project Filtering
+
+Users can filter projects by category:
+
+* Frontend
+* Fullstack
+* AI
+* All
+
+---
 
 ### ✅ Bookmark System
-- Add / Remove bookmarks
-- Prevent duplicate entries
 
-### ✅ Theme Context
-- Global Dark/Light mode toggle
-- Persistent theme preference
+Users can:
+
+* Add bookmarks
+* Remove bookmarks
+* Prevent duplicate entries
+
+---
+
+### ✅ Global Theme Context
+
+Implemented using **React Context API**
+
+Features:
+
+* Dark / Light theme
+* Persistent theme preference
+* Global UI consistency
+
+---
+
+### ✅ Performance Optimization
+
+Used **useMemo** to prevent unnecessary recalculations.
+
+Optimized:
+
+* project counts
+* bookmark statistics
+* derived state computations
 
 ---
 
 # 📂 Project Structure
 
 ```
-src/
+src
 │
-├── components/
+├── components
 │   ├── Navbar.jsx
 │   ├── Footer.jsx
-│   ├── Layout.jsx
 │
-├── pages/
+├── pages
 │   ├── Home.jsx
+│   ├── Profile.jsx
 │   ├── Projects.jsx
 │   ├── Experience.jsx
 │   ├── Achievements.jsx
 │   ├── Hackathons.jsx
+│   ├── Reports.jsx
 │   ├── Contact.jsx
 │
-├── redux/
-│   ├── projectSlice.js
-│   ├── store.js
+├── store
+│   ├── index.js
+│   └── slices
+│        ├── projectSlice.js
+│        └── searchSlice.js
 │
-├── context/
+├── context
 │   ├── ThemeContext.jsx
-│   ├── AuthContext.jsx
 │   ├── LanguageContext.jsx
 │
 ├── App.jsx
@@ -112,29 +246,33 @@ src/
 
 # ⚙️ Installation & Setup
 
+### Clone Repository
 
+```
+git clone https://github.com/SaloniGupta6/portfolio-website.git
+```
 
-Navigate to folder:
+### Navigate to Project
 
-```bash
+```
 cd portfolio-website
 ```
 
-Install dependencies:
+### Install Dependencies
 
-```bash
+```
 npm install
 ```
 
-Run development server:
+### Run Development Server
 
-```bash
+```
 npm run dev
 ```
 
-Build for production:
+### Build Production Version
 
-```bash
+```
 npm run build
 ```
 
@@ -142,41 +280,57 @@ npm run build
 
 # 🚀 Deployment
 
-This application is deployed using **Vercel**.
+The application is deployed using **Vercel**.
 
 Deployment Steps:
 
-1. Push code to GitHub
+1. Push project to GitHub
 2. Import repository in Vercel
-3. Click Deploy
-4. Application goes live
+3. Click **Deploy**
+4. Application goes live automatically
 
 ---
 
-# 🎯 Key Functionalities Demonstrated (EXP-4 Evaluation Ready)
+# 📸 Screenshots
 
-- ✔ Global State Management
-- ✔ Asynchronous Data Fetching
-- ✔ Modular Folder Structure
-- ✔ Scalable Component Architecture
-- ✔ Persistent Application State
-- ✔ Clean UI/UX
-- ✔ Production Deployment
+Screenshots are available inside:
+
+```
+/screenshots
+```
+
+Includes:
+
+* Projects Page
+* Reports Page
+* Bookmark System
+
+---
+
+# 🎯 Key Functionalities Demonstrated
+
+✔ Multi-Page React Application
+✔ Redux Toolkit State Management
+✔ Async Data Handling
+✔ Context API Global State
+✔ useMemo Performance Optimization
+✔ Dynamic UI Interaction
+✔ Scalable Folder Structure
+✔ Production Deployment
 
 ---
 
 # 👩‍💻 Developed By
 
-**Saloni Gupta**  
-B.Tech CSE AI-ML
-23BAI70642
+**Saloni Gupta**
+B.Tech CSE (AI-ML)
 
-📧 gsaloni567@gmail.com  
+Student ID: **23BAI70642**
+
+📧 [gsaloni567@gmail.com](mailto:gsaloni567@gmail.com)
 
 ---
 
 # ⭐ Academic Declaration
 
-This project is developed as part of **EXP-4 (Advanced Application Development Experiment)** for academic submission and learning purposes.
-
----
+This project is developed as part of **Experiment-4 and Experiment-5 (Advanced React Application Development)** for academic submission and learning purposes.
